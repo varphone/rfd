@@ -206,7 +206,7 @@ impl WinMessageDialog {
     pub fn run(self) -> MessageDialogResult {
         let ret = unsafe {
             MessageBoxW(
-                self.parent.unwrap_or_default(),
+                self.parent.unwrap_or(0 as _),
                 self.text.as_ptr(),
                 self.caption.as_ptr(),
                 self.flags,
